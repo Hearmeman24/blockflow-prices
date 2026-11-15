@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "_doc": "Test-only mapping for the synthetic pages in tests/fixtures/sources/. All names and prices are invented.",
+  "not_priceable": [
+    {"provider": "kie", "model": "example/token-model", "code": "priced_per_token",
+     "message": "Example Lab prices this model per token.", "source": "https://example.test/token"}
+  ],
+  "kie": {
+    "source": "kie_pricing_api",
+    "watch": ["example video", "example image"],
+    "ignore": ["layer-decomposition"],
+    "rows": [
+      {"description": "Example Video Model, 720p no video input", "unit": "credits_per_second",
+       "targets": [{"model": "example/video-model", "resolution": "720p", "variant": null}]},
+      {"description": "Example Video Model, 720p with video input", "unit": "credits_per_second",
+       "targets": [{"model": "example/video-model", "resolution": "720p", "variant": "video_input"}]},
+      {"description": "Example Video Model, 1080p no video input", "unit": "credits_per_second",
+       "targets": [{"model": "example/video-model", "resolution": "1080p", "variant": null}]},
+      {"description": "Example Image Model, 1K / 2K", "unit": "credits_per_image",
+       "targets": [{"model": "example/image-model", "resolution": "1k", "variant": null},
+                   {"model": "example/image-model", "resolution": "2k", "variant": null}]},
+      {"description": "Example Image Model, 4K", "unit": "credits_per_image",
+       "targets": [{"model": "example/image-model", "resolution": "4k", "variant": null}]},
+      {"description": "Example Image Model, reference image (each)", "unit": "credits_per_reference_image",
+       "targets": [{"model": "example/image-model"}]}
+    ]
+  },
+  "piapi": {
+    "docs": [
+      {"source": "piapi_example_video", "path": "example-api/video",
+       "ignore_rows": {"example-video-legacy": "Retired; kept out on purpose."},
+       "tables": [
+         {"after": "Price per second", "unit": "usd_per_second", "variant": null,
+          "rows": {"example-video": "example-video", "example-video-fast": "example-video-fast"},
+          "columns": {"480p": "480p", "720p": "720p", "1080p": "1080p"}},
+         {"after": "With an input video", "unit": "usd_per_second", "variant": "video_input",
+          "rows": {"1.0": "example:1.0", "2.0": "example:2.0"},
+          "columns": {"720p": "720p", "1080p": "1080p"}}
+       ]},
+      {"source": "piapi_example_image", "path": "example-api/image",
+       "patterns": [{"regex": "\\$([0-9.]+)/per million pixel", "unit": "usd_per_megapixel",
+                     "targets": [{"model": "example-upscale"}]}]}
+    ]
+  }
+}

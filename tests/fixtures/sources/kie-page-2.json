@@ -1,0 +1,24 @@
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "records": [
+      {"modelDescription": "Example Image Model, 4K", "interfaceType": "image", "provider": "Example Lab",
+       "creditPrice": "6", "creditUnit": "per image", "usdPrice": "0.03", "anchor": "https://example.test/image"},
+      {"modelDescription": "Example Image Model, reference image (each)", "interfaceType": "image",
+       "provider": "Example Lab", "creditPrice": "0.5", "creditUnit": "per image", "usdPrice": "0.0025",
+       "anchor": "https://example.test/image"},
+      {"modelDescription": "Example Chat Model, Output", "interfaceType": "chat", "provider": "Example Lab",
+       "creditPrice": "600", "creditUnit": "per million tokens", "usdPrice": "3.00", "anchor": "https://example.test/chat"},
+      {"modelDescription": "Example Video Model Next, 720p", "interfaceType": "video", "provider": "Example Lab",
+       "creditPrice": "50", "creditUnit": "per second", "usdPrice": "0.25", "anchor": "https://example.test/video-next"},
+      {"modelDescription": "Example Image Model, layer-decomposition, 1K", "interfaceType": "image",
+       "provider": "Example Lab", "creditPrice": "3", "creditUnit": "per image", "usdPrice": "0.015",
+       "anchor": "https://example.test/image"}
+    ],
+    "total": 9,
+    "size": 5,
+    "current": 2,
+    "pages": 2
+  }
+}

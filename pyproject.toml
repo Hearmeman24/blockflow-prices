@@ -1,0 +1,25 @@
+[project]
+name = "blockflow-prices"
+version = "0.1.0"
+description = "Public price list for the Kie and PiAPI generation models used by the BlockFlow app, and the tool that updates it"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = ["E501"]

@@ -1,0 +1,20 @@
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "records": [
+      {"modelDescription": "Example Video Model, 720p no video input", "interfaceType": "video", "provider": "Example Lab",
+       "creditPrice": "40", "creditUnit": "per second", "usdPrice": "0.20", "anchor": "https://example.test/video"},
+      {"modelDescription": "Example Video Model, 720p with video input", "interfaceType": "video", "provider": "Example Lab",
+       "creditPrice": "25", "creditUnit": "per second", "usdPrice": "0.125", "anchor": "https://example.test/video"},
+      {"modelDescription": "Example Video Model, 1080p no video input", "interfaceType": "video", "provider": "Example Lab",
+       "creditPrice": "100", "creditUnit": "per second", "usdPrice": "0.50", "anchor": "https://example.test/video"},
+      {"modelDescription": "Example Image Model, 1K / 2K", "interfaceType": "image", "provider": "Example Lab",
+       "creditPrice": "2", "creditUnit": "per image", "usdPrice": "0.01", "anchor": "https://example.test/image"}
+    ],
+    "total": 9,
+    "size": 4,
+    "current": 1,
+    "pages": 2
+  }
+}

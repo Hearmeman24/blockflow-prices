@@ -1,0 +1,68 @@
+# "Report a price change". The BlockFlow app opens this form prefilled when a
+# provider's actual charge differs from prices.json. The field ids below are the
+# query parameters the app sends; keep them in sync with the app's
+# backend/byok/learned_prices.py (report_url). The app sends nothing else: no
+# prompt, file names, account data or job id.
+name: Report a price change
+description: A provider charged a different price than prices.json lists.
+title: "Price change: "
+labels: ["price-change"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Thanks for reporting. Please check the provider's own pricing page if you can.
+        Do not include API keys, prompts or account details.
+  - type: input
+    id: provider
+    attributes:
+      label: Provider
+      description: kie or piapi
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Provider model identifier
+      description: The model string or task type, as in prices.json (for example bytedance/seedance-2).
+    validations:
+      required: true
+  - type: input
+    id: variant
+    attributes:
+      label: Variant
+      description: Resolution and other billing dimensions (for example "720p" or "720p, video_input"), or "none".
+  - type: input
+    id: unit
+    attributes:
+      label: Unit
+      description: As in prices.json (for example credits_per_second or usd_per_image).
+    validations:
+      required: true
+  - type: input
+    id: ledger_price
+    attributes:
+      label: Ledger price
+      description: The price prices.json lists.
+  - type: input
+    id: ledger_date
+    attributes:
+      label: Ledger date
+      description: The date of that price (YYYY-MM-DD).
+  - type: input
+    id: observed_price
+    attributes:
+      label: Observed price
+      description: The unit price the provider actually charged.
+    validations:
+      required: true
+  - type: input
+    id: observed_date
+    attributes:
+      label: Observed date
+      description: When it was charged (YYYY-MM-DD).
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything else that helps, such as a link to the provider's pricing page.
